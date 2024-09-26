@@ -1,7 +1,3 @@
-export const metadata = {
-  title: 'Cycle FM',
-}
-
 export default function LayoutWrapper({ children }) {
   return (
     <html lang="en" className="h-full bg-black">

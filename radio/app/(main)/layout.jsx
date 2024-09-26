@@ -16,7 +16,7 @@ export default function MainLayout({ children }) {
         <MainContainer>
           <PosterImage />
           <IntroText />
-          <AboutSection className="mt-12 hidden lg:block" />
+          <AboutSection />
           <VisitUs />
         </MainContainer>
       </MainHeaderWrapper>

@@ -4,16 +4,14 @@ import AboutParagraph from '../AboutParagraph/AboutParagraph'
 import AboutHeading from '../AboutHeading/AboutHeading'
 import ExpandButton from '../ExpandButton/ExpandButton'
 
-export function AboutSection(props) {
+export function AboutSection() {
   let [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <section {...props}>
+    <section className="mt-12 hidden lg:block">
       <AboutHeading />
       <AboutParagraph isExpanded={isExpanded} />
       <ExpandButton isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
     </section>
   )
 }
-
-//OK

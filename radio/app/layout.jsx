@@ -8,6 +8,9 @@ export const metadata = {
   },
   description:
     'Conversations with the most tragically misunderstood people of our time.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({ children }) {
