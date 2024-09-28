@@ -1,28 +1,11 @@
-'use client'
-import { useMode } from '@/utils/mode_check/mode_check'
 import { SpeakerWaveIcon, SpeakerXMarkIcon } from '@heroicons/react/24/solid'
-import { useEffect, useState } from 'react'
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css'
+import '../styles/tailwind.css'
 
 export default function VolumeControl({ volume, handleVolumeChange }) {
-  const isNeurofunk = useMode()
-  const [mode, setMode] = useState(isNeurofunk)
-
-  useEffect(() => {
-    const checkAndSetMode = () => {
-      setMode(isNeurofunk)
-    }
-
-    checkAndSetMode()
-
-    const interval = setInterval(checkAndSetMode, 60 * 1000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  const controlColor = mode ? 'bg-green-500' : 'bg-pink-500'
-
   return (
-    <div className="mt-11 flex items-center">
+    <div className="mt-11 flex items-center justify-center">
       <div className="volume-icon mr-4 text-white">
         {volume === 0 ? (
           <SpeakerXMarkIcon
@@ -36,15 +19,13 @@ export default function VolumeControl({ volume, handleVolumeChange }) {
           />
         )}
       </div>
-      <div className="volume-bar flex gap-1">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div
-            key={i}
-            className={`bar h-4 w-2 ${i < volume ? controlColor : 'bg-white'}`}
-            onClick={() => handleVolumeChange(i + 1)}
-          ></div>
-        ))}
-      </div>
+      <Slider
+        min={0}
+        max={20}
+        value={volume}
+        onChange={handleVolumeChange}
+        style={{ width: '250px' }}
+      />
     </div>
   )
 }

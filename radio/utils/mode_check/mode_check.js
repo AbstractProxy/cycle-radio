@@ -1,6 +1,9 @@
-// utils/mode_check.js
-export function useMode() {
+export function getCycle() {
   const currentHour = new Date().getHours()
 
-  return currentHour >= 18 || currentHour <= 6 // Vraća true ili false
+  if (currentHour >= 18 || currentHour <= 6) {
+    return 'neurofunk'
+  }
+
+  return ''
 }

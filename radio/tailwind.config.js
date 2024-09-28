@@ -1,5 +1,16 @@
+const plugin = require('tailwindcss/plugin')
 const typographyPlugin = require('@tailwindcss/typography')
 const defaultTheme = require('tailwindcss/defaultTheme')
+
+const customVariants = plugin(({ addVariant, e }) => {
+  // addVariant("neurofunk", ".neurofunk &");
+  addVariant('neurofunk', ({ modifySelectors, separator }) => {
+    modifySelectors(({ className }) => {
+      const element = e(`neurofunk${separator}${className}`)
+      return `.neurofunk .${element}`
+    })
+  })
+})
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,6 +18,7 @@ module.exports = {
     './app/**/*.{js,jsx,ts,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './utils/**/*.{js,ts,jsx,tsx}',
+    './styles/**/*.css',
   ],
   theme: {
     extend: {
@@ -20,5 +32,5 @@ module.exports = {
       },
     },
   },
-  plugins: [typographyPlugin],
+  plugins: [customVariants, require('tailwind-scrollbar')],
 }

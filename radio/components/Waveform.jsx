@@ -1,10 +1,10 @@
 'use client'
 
-import { useMode } from '@/utils/mode_check/mode_check'
-import { useEffect, useId, useState } from 'react'
+import { getCycle } from '@/utils/mode_check/mode_check'
+import { useId } from 'react'
 
-function getGradientStops(mode) {
-  if (mode) {
+function getGradientStops(cycle) {
+  if (cycle === 'neurofunk') {
     return (
       <>
         <stop offset="0%" stopColor="#22c55e" />
@@ -32,20 +32,7 @@ function randomBetween(min, max, seed = 1) {
 }
 
 export function Waveform(props) {
-  const isNeurofunk = useMode()
-  const [mode, setMode] = useState(isNeurofunk)
-
-  useEffect(() => {
-    const checkAndSetMode = () => {
-      setMode(isNeurofunk)
-    }
-
-    checkAndSetMode()
-
-    const interval = setInterval(checkAndSetMode, 60 * 1000)
-
-    return () => clearInterval(interval)
-  }, [])
+  const cycle = getCycle()
 
   let id = useId()
   let bars = {
@@ -69,7 +56,7 @@ export function Waveform(props) {
           <stop offset="100%" stopColor="black" />
         </linearGradient>
         <linearGradient id={`${id}-gradient`}>
-          {getGradientStops(mode)}
+          {getGradientStops(cycle)}
         </linearGradient>
         <mask id={`${id}-mask`}>
           <rect width="100%" height="100%" fill={`url(#${id}-pattern)`} />

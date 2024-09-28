@@ -7,7 +7,9 @@ export default function NotFound() {
     <main className="relative flex h-full items-center py-36 lg:px-8">
       <Waveform className="absolute left-0 top-0 h-20 w-full" />
       <div className="relative mx-auto flex w-full max-w-2xl flex-col items-center px-4 sm:px-6 lg:px-0">
-        <p className="font-mono text-sm leading-7 text-pink-500">404</p>
+        <p className="neurofunk:text-green-500  font-mono text-4xl leading-7 text-pink-500">
+          404
+        </p>
         <h1 className="mt-4 text-lg font-bold text-slate-200">
           Page not found
         </h1>
@@ -16,7 +18,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="mt-4 text-sm font-bold leading-6 text-pink-500 hover:text-pink-700"
+          className="neurofunk:text-green-500 neurofunk:hover:text-green-700 mt-4 text-sm font-bold leading-6 text-pink-500 hover:text-pink-700"
         >
           Go back home
         </Link>

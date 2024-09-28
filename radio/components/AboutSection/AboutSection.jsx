@@ -8,7 +8,7 @@ export function AboutSection() {
   let [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <section className="mt-12 hidden lg:block">
+    <section className="mt-12  lg:block">
       <AboutHeading />
       <AboutParagraph isExpanded={isExpanded} />
       <ExpandButton isExpanded={isExpanded} setIsExpanded={setIsExpanded} />

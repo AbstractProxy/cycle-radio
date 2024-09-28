@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --handle-color: #db2777;
+  --track-color: #db2777;
+}
+
+.neurofunk {
+  --handle-color: #22c55e;
+  --track-color: #22c55e;
+}
+
+/* style.css */
+.rc-slider-handle {
+  background-color: var(--handle-color);
+  border: none;
+  opacity: 1;
+}
+
+.rc-slider-handle-dragging {
+  background-color: var(--handle-color);
+  border: none;
+  opacity: 1;
+  border-color: var(--handle-color);
+  box-shadow: none !important;
+}
+
+.rc-slider-track {
+  background-color: var(--track-color);
+}

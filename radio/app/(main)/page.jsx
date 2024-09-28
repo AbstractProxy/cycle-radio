@@ -27,7 +27,7 @@ export default function Home() {
       setIsPlaying(false)
     } else {
       if (audioRef.current) {
-        audioRef.current.src = 'http://192.168.1.108/stream'
+        audioRef.current.src = ''
         audioRef.current.volume = volume / 100
         audioRef.current.play()
         setIsPlaying(true)
@@ -39,9 +39,7 @@ export default function Home() {
     <HomePageWrapper>
       <PlayStreamButton onClick={handlePlayStream} isPlaying={isPlaying} />
       <VolumeControl volume={volume} handleVolumeChange={handleVolumeChange} />
-
       <MapStreamButtons />
-
       <audio ref={audioRef} autoPlay />
     </HomePageWrapper>
   )

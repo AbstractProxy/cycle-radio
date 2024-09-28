@@ -15,8 +15,6 @@ export default function PlayStreamButton({ onClick, isPlaying }) {
         ) : (
           <PlayIcon className="h-28 w-28 group-active:fill-white/80 md:h-28 md:w-28" />
         )}
-
-        {/* <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white to-pink-500 opacity-35" /> */}
       </button>
     </>
   )
