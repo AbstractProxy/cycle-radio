@@ -106,8 +106,8 @@ export function Slider(props) {
           className={clsx(
             'h-2 md:rounded-l-xl md:rounded-r-md',
             isFocusVisible || state.isThumbDragging(0)
-              ? 'bg-pink-600'
-              : 'bg-pink-400',
+              ? 'bg-pink-600 neurofunk:bg-green-600'
+              : 'bg-pink-500 neurofunk:bg-green-500 ',
           )}
           style={{
             width:
